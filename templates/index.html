@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Brendog's Blog</title>
+  <link href="../static/css/style.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" type="image/x-icon" href="/static/images/blogIcon.png"/>
+  <script src="/static/js/activePageChanger.js" defer></script>
+  <script src="/static/js/postShower.js" defer></script>
+  <script src="/static/js/searchbar.js" defer></script>
+  <!-- 
+    insert flask element by {{url}}
+  -->
+</head>
+
+<body>
+  <!-- blog title -->
+  <div id="titleArea">
+    <div id="titleTop"></div>
+    <h1 id="title">Brendog's Blog</h1>
+    <div id="titleBottom"></div>
+  </div>
+
+  <div id="optionsBar">
+    <a class="pageLink active" id="homeLink" onclick="switchActive('homeLink', 'homePage')">HOME</a>
+    <a class="pageLink" id="postsLink" onclick="switchActive('postsLink', 'postsPage')">POSTS</a>
+    <a class="pageLink" id="createLink" onclick="switchActive('createLink', 'createPage')">CREATE POST</a>
+  </div>
+
+  <div id="homePage">
+    <p id="homeText">Welcome to my "blog". I've always hated the word blog, it sounds dumb - feels like a 2008 disney show type thing. Not sure what else to call it though - so for now, it's my blog. I also can't say i'll be keeping up this stupid official tone, I'm not writing a script for some show, I am writing my thoughts and what I've been doing lately, leading from that, I should explain what my blog is for.<br></br>Mainly, it's so I can keep updates of my life and my programming projects. Mainly my programming though, I'm not creating a blog from the ground up to discuss how much i like long walks on the beach, I hope I'm not <i>that</i> vain. I'll be updating this hopefully every other day, with current projects I'm doing, along with things I've learnt. Perhaps I'll even write a post about something super cool I found out occasionaly, in the hopes someone might make use of it.<br></br>I think that describes it well. Feel free to check out my <i><a class="expLink" href="https://portfolio.brendawg.repl.co/" target=”_blank”  rel="noopener noreferrer">portfolio website</a></i> or my <i><a class="expLink" href="https://github.com/br3nd0g" target=”_blank”  rel="noopener noreferrer">github profile</a></i>. Enjoy :)</p>
+    <img src="/static/images/blogLogo.png" id="homeImg">
+  </div>
+
+  <div id="postsPage">
+    <div id="searchBarArea">
+      <h2 id="searchText">Search: </h2>
+      <input type="text" id="searchInput">
+    </div>
+    <div id="postsArea"></div>
+  </div>
+
+  <div id="createPage">
+    {% if passwordCorrect %}
+    <form method="post" class="createForm">
+      <div class="formElementContainer smallInputContainer">
+      <h2 class="formText">Post title: </h2>
+      <input type="text" name="title" placeholder="Post title here" class="formInput">
+      </div>
+      <div class="formElementContainer">
+      <h2 class="formText">Post content: </h2>
+      <textarea name="text" placeholder="The text of my new blog post..." class="formTA"></textarea>
+      </div>
+      <div class="buttonFlexer">
+        <input type="submit" class="formButton" value="Submit post"/>
+      </div>
+    </form>
+    {% else %}
+    <form method="post" class="createForm">
+      <div class="formElementContainer smallInputContainer">
+      <h2 class="formText">Password: </h2>
+      
+      <input type="password" name="password" placeholder="Password" class="formInput">
+      </div>
+      <div class="buttonFlexer">
+        <input type="submit" class="formButton" value="Submit"/>
+      </div>
+    </form>
+    {% endif %}
+  </div>
+
+  <script>
+    const jsonFromFlask = `{{jsonn | safe}}`;
+  </script>
+  
+</body>
+
+</html>
