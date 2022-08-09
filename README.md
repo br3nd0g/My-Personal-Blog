@@ -6,6 +6,8 @@ It is a single page application, so once loaded, has no extra loading time. This
 
 I also decided to give the website a darker, 'chic' look, with a red highlight to eccentuate certain elements. As a whole, I am glad with how the website turned out and I am excited to update it wtih blog posts for (hopefully) years to come.
 
+Take a look [here](https://personal-blog.brendawg.repl.co/)
+
 ## What I Learnt
 
 For the first time, I have added a search bar. The search bar is very basic, but I liked making it, and I am glad with how effective it is. I learnt how to dynamically receive a query and search through elements for corresponding posts.
