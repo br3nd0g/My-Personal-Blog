@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request
-import os
 import interactWithJSON as si
 
 baseURL = 'https://personal-blog.repl.co/'
@@ -7,7 +6,7 @@ baseURL = 'https://personal-blog.repl.co/'
 app = Flask("Brendog's Blog")
 app.static_folder = 'static'
 
-passw = os.environ['password']
+passw = "myPassword"
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
